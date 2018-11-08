@@ -1,6 +1,6 @@
 import React from "react";
 
-class StorePicker extends React.Component {
+export default class StorePicker extends React.Component {
     render () {
         return(
             // TODO Add a header to the page
@@ -11,4 +11,3 @@ class StorePicker extends React.Component {
         );
     }
 }
-export default StorePicker;
