@@ -5,13 +5,11 @@ import StorePicker from "../StorePicker";
 describe('verify rendered UI items', () => {
     it('find store name button', () => {
         const wrapper = shallow(<StorePicker/>);
-        const storeButton = <button id="storeButton" className="goto-store-button" type="submit">Go to store</button>;
-        expect(wrapper.contains(storeButton)).toEqual(true);
+        expect(wrapper.find('#storeButton').length).toEqual(1);
     });
     it('find store name input', () => {
         const wrapper = shallow(<StorePicker/>);
-        const storeNameInput = <input id="storeName" type="text" required placeholder="Store Name"/>;
-        expect(wrapper.contains(storeNameInput)).toEqual(true);
+        expect(wrapper.find('#storeName').length).toEqual(1);
     });
 });
 
