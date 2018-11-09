@@ -7,7 +7,7 @@ import Inventory from "./Inventory";
 export default class App extends Component {
     render() {
         return (
-            <div>
+            <div className="App">
                 <Header/>
                 <Fishes/>
                 <Order/>
@@ -17,6 +17,6 @@ export default class App extends Component {
     }
 
     componentDidMount() {
-        alert("componentDidMount");
+
     }
 }
