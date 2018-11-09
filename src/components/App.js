@@ -1,17 +1,22 @@
 import React, {Component} from 'react';
 import Header from "./Header";
-import StorePicker from "./StorePicker";
+import Fishes from "./Fishes";
+import Order from "./Order";
+import Inventory from "./Inventory";
 
-class App extends Component {
+export default class App extends Component {
     render() {
         return (
-            <Header/>
-            // TODO Add a header to the page
-            // TODO Add the left sidebar where we keep all the fishes
-            // TODO Add middle bar where we count the shopping
-            // TODO Add right sidebar where we edit the fishes
+            <div>
+                <Header/>
+                <Fishes/>
+                <Order/>
+                <Inventory/>
+            </div>
         );
     }
-}
 
-export default App;
+    componentDidMount() {
+        alert("componentDidMount");
+    }
+}
