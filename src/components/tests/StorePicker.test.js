@@ -1,11 +1,11 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import {mount, shallow} from 'enzyme';
 import StorePicker from "../StorePicker";
 
 describe('verify rendered UI items', () => {
     it('find store name button', () => {
         const wrapper = shallow(<StorePicker/>);
-        const storeButton = <button className="goto-store-button" type="submit">Go to store</button>;
+        const storeButton = <button id="storeButton" className="goto-store-button" type="submit">Go to store</button>;
         expect(wrapper.contains(storeButton)).toEqual(true);
     });
     it('find store name input', () => {
@@ -15,15 +15,21 @@ describe('verify rendered UI items', () => {
     });
 });
 
-describe('do actions in the form', () => {
-    it('submit store name button and call next function to get the name and show in Url path', () => {
-        const event = Object.assign(jest.fn(), {
-            preventDefault: () => {
-            }
+describe('verify actions in the form', () => {
+    it('submit store name button and call goToStore function', () => {
+        // Get instance of StorePicker component
+        const pageMounted = mount(<StorePicker/>);
+
+        // Set a name
+        const input = pageMounted.find('#storeName');
+        input.getDOMNode().value = 'gabi is awesome';
+        input.simulate('change');
+        expect(input.getDOMNode().value).toEqual('gabi is awesome');
+
+        // Click on submit button
+        const fakeEvent = Object.assign(jest.fn(), {
+            preventDefault() {}
         });
-        const button = shallow((<button className="goto-store-button" type="submit">Go to store</button>));
-        button.simulate('click', event);
-        const pageMounted = shallow(<StorePicker/>);
-        pageMounted.instance().goToStore(event);
+        pageMounted.find('#storeButton').simulate('click', fakeEvent);
     });
 });

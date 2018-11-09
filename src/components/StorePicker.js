@@ -9,7 +9,7 @@ export default class StorePicker extends React.Component {
                 <div> Hi from store picker</div>
                 <h1>Please enter a name for a store</h1>
                 <input id="storeName" type="text" required placeholder="Store Name" ref={this.storeNameInput}/>
-                <button className="goto-store-button" type="submit">Go to store</button>
+                <button id="storeButton" className="goto-store-button" type="submit">Go to store</button>
             </form>
         );
     }
