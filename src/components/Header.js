@@ -4,8 +4,8 @@ import '../css/App.css';
 
 const Header = props => (
     <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo"/>
-        <p>
+        <img id="logo" src={logo} className="App-logo" alt="logo"/>
+        <p id="title">
             Welcome to the fish market
         </p>
     </header>
