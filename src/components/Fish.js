@@ -17,7 +17,7 @@ export default class Fish extends React.Component {
         const { image, name, price, desc, status } = this.props.details;
         const isAvailable = status === "available";
         return(
-            <li className="menu-fish">
+            <li id="showFish" className="menu-fish">
                 <img src={image} alt={name} />
                 <h3 className="fish-name">
                     {name}
@@ -26,8 +26,7 @@ export default class Fish extends React.Component {
                 <p>{desc}</p>
                 <button
                     disabled={!isAvailable}
-                    onClick={() => this.props.addToOrder(this.props.index)}
-                >
+                    onClick={() => this.props.addToOrder(this.props.index)}>
                     {isAvailable ? "Add To Order" : "Sold Out!"}
                 </button>
             </li>
