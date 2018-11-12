@@ -14,7 +14,7 @@ export default class App extends Component {
         return (
             <div className="App">
                 <Header/>
-                <Fishes/>
+                <Fishes fishes={this.state.fishes}/>
                 <Order/>
                 <Inventory loadSampleFishes={this.loadSamplesFishes}/>
             </div>
