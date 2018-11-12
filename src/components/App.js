@@ -7,14 +7,15 @@ import sampleFishes from "../sample-fishes";
 
 export default class App extends Component {
     state = {
-        fishes: {}
+        fishes: {},
+        order: {}
     };
 
     render() {
         return (
             <div className="App">
                 <Header/>
-                <Fishes fishes={this.state.fishes}/>
+                <Fishes fishes={this.state.fishes} addToOrderFromApp={this.addToOrderFromApp}/>
                 <Order/>
                 <Inventory loadSampleFishes={this.loadSamplesFishes}/>
             </div>
@@ -26,5 +27,14 @@ export default class App extends Component {
 
     loadSamplesFishes = () => {
         this.setState({fishes: sampleFishes});
+    };
+
+    addToOrderFromApp = key => {
+        // take a copy of the order
+        const order = {...this.state.order};
+        // add a new item in the order or update de number in the found order
+        order[key] = order[key] + 1 || 1;
+        // update state of the order
+        this.setState({order: order});
     };
 }

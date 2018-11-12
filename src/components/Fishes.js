@@ -1,7 +1,11 @@
 import React from "react";
 import Fish from "./Fish";
+import PropTypes from "prop-types";
 
 export default class Fishes extends React.Component {
+    static propTypes = {
+        addToOrderFromApp: PropTypes.func
+    };
     render() {
         return (
             <div>
@@ -18,4 +22,8 @@ export default class Fishes extends React.Component {
             </div>
         );
     }
+
+    addToOrder = key => {
+        this.props.addToOrderFromApp(key);
+    };
 }
