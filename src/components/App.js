@@ -18,11 +18,20 @@ export default class App extends Component {
                 <Header/>
                 <Container fluid style={{background: '#28Fc22'}}>
                     <Row>
-                        <Col xs={12} sm={3} md={4} lg={5} style={{background: '#28FcCC'}}><Fishes
-                            fishes={this.state.fishes} addToOrderFromApp={this.addToOrderFromApp}/></Col>
-                        <Col xs={6} sm={6} md={4} lg={2} style={{background: '#28FcFF'}}> <Order/></Col>
-                        <Col xs={6} sm={3} md={4} lg={5} style={{background: '#280000'}}><Inventory
-                            loadSampleFishes={this.loadSamplesFishes}/></Col>
+                        <Col xs={12} sm={3} md={4} lg={5} style={{background: '#28FcCC'}}>
+                            <Fishes
+                                    fishes={this.state.fishes}
+                                    addToOrderFromApp={this.addToOrderFromApp}/>
+                        </Col>
+                        <Col xs={6} sm={6} md={4} lg={2} style={{background: '#28FcFF'}}>
+                            <Order
+                                fishes={this.state.fishes}
+                                order={this.state.order}/>
+                        </Col>
+                        <Col xs={6} sm={3} md={4} lg={5} style={{background: '#280000'}}>
+                            <Inventory
+                                    loadSampleFishes={this.loadSamplesFishes}/>
+                        </Col>
                     </Row>
                 </Container>
             </div>
