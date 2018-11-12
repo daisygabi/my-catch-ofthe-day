@@ -29,7 +29,7 @@ export default class Order extends React.Component {
                     {orderIds.map(this.renderOrder)}
                 </ul>
                 <div>
-                    Total: {total}
+                    Total: {formatPrice(total)}
                 </div>
             </div>
         );
@@ -40,8 +40,8 @@ export default class Order extends React.Component {
         const count = this.props.order[key];
         const isAvailable = fish.status === 'available';
         if (!isAvailable) {
-            return <li>Sorry {fish ? fish.name : 'fish'} is not available</li>;
+            return <li key={key}>Sorry {fish ? fish.name : 'fish'} is not available</li>;
         }
-        return <li>{count} lbs {fish.name} {formatPrice(count * fish.price)}</li>;
+        return <li key={key}>{count} lbs {fish.name} {formatPrice(count * fish.price)}</li>;
     };
 }
