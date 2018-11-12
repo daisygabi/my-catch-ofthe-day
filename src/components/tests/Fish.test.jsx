@@ -3,16 +3,11 @@ import {mount} from 'enzyme';
 import Fish from "../Fish";
 
 describe('verify rendered UI items', () => {
-    var order;
     var component;
     var key;
     var fish;
 
     beforeEach(() => {
-        order = {
-            key: "fish1",
-            count: 1
-        };
         key = 1;
         fish = {
             image: "../images/hali.jpg",
