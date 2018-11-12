@@ -1,6 +1,7 @@
 import React from "react";
 import Fish from "./Fish";
 import PropTypes from "prop-types";
+import {Row, Col} from 'reactstrap';
 
 export default class Fishes extends React.Component {
     static propTypes = {
@@ -8,8 +9,8 @@ export default class Fishes extends React.Component {
     };
     render() {
         return (
-            <div>
-                <ul>
+            <Row>
+                Show fishes here
                     {Object.keys(this.props.fishes).map(key => (
                         <Fish
                             key={key}
@@ -18,8 +19,8 @@ export default class Fishes extends React.Component {
                             addToOrder={this.addToOrder}
                         />
                     ))}
-                </ul>
-            </div>
+            </Row>
+
         );
     }
 
