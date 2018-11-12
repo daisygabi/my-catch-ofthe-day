@@ -5,11 +5,13 @@ export default class StorePicker extends React.Component {
 
     render() {
         return (
-            <form className="store-selector" onSubmit={this.goToStore}>
-                <div> Hi from store picker</div>
-                <h1>Please enter a name for a store</h1>
-                <input id="storeName" type="text" required placeholder="Store Name" ref={this.storeNameInput}/>
-                <button id="storeButton" className="goto-store-button" type="submit">Go to store</button>
+            <form className="jumbotron" onSubmit={this.goToStore}>
+                <div className="my-lg-4"> Hi from store picker</div>
+                <h1 className="lead">Please enter a name for a store</h1>
+                <input id="storeName" className="display-4" type="text" required placeholder="Store Name" ref={this.storeNameInput}/>
+                <div className="d-sm-table-row">
+                    <button id="storeButton" className="btn btn-primary btn-lg" type="submit">Go to store</button>
+                </div>
             </form>
         );
     }
