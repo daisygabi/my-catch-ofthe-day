@@ -26,7 +26,8 @@ export default class App extends Component {
                         <Col xs={6} sm={6} md={4} lg={2} style={{background: '#28FcFF'}}>
                             <Order
                                 fishes={this.state.fishes}
-                                order={this.state.order}/>
+                                order={this.state.order}
+                                removeFishFromOrder={this.removeFishFromOrder}/>
                         </Col>
                         <Col xs={6} sm={3} md={4} lg={5} style={{background: '#280000'}}>
                             <Inventory
@@ -53,4 +54,13 @@ export default class App extends Component {
         // update state of the order
         this.setState({order: order});
     };
+
+    removeFishFromOrder = key => {
+        // get copy of state
+        const order = {...this.state.order};
+        // update the order
+        delete order[key];
+        // update the state
+        this.setState({order: order});
+    }
 }

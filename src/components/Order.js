@@ -42,6 +42,7 @@ export default class Order extends React.Component {
         if (!isAvailable) {
             return <li key={key}>Sorry {fish ? fish.name : 'fish'} is not available</li>;
         }
-        return <li key={key}>{count} lbs {fish.name} {formatPrice(count * fish.price)}</li>;
+        return <li key={key}>{count} lbs {fish.name} {formatPrice(count * fish.price)}
+        <button onClick={() => this.props.removeFishFromOrder(key)}>&times;</button></li>;
     };
 }
