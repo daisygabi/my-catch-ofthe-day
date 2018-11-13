@@ -50,7 +50,10 @@ export default class App extends Component {
         // take a copy of the order
         const order = {...this.state.order};
         // add a new item in the order or update de number in the found order
-        order[key] = order[key] + 1 || 1;
+        if(order[key] === undefined) {
+            order[key] = 0;
+        }
+        order[key] = order[key] + 1;
         // update state of the order
         this.setState({order: order});
     };
