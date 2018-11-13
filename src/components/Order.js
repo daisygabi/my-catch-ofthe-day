@@ -22,12 +22,12 @@ export default class Order extends React.Component {
 
 
         return (
-            <div>
+            <div id="wrapper-order">
                 <h2>Order</h2>
-                <ul>
+                <ul id="order-ids">
                     {orderIds.map(this.renderOrder)}
                 </ul>
-                <div>
+                <div id="order-total">
                     Total: {formatPrice(total)}
                 </div>
             </div>
