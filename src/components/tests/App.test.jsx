@@ -20,13 +20,6 @@ describe('verify rendered UI items', () => {
             fish1: 1,
             fish2: 2
         };
-        fish = {
-            image: "../images/hali.jpg",
-            name: "Pacific Halibut",
-            price: 1724,
-            desc: "Everyone's favorite white fish. Only for some actually.",
-            status: "available"
-        };
     });
     it('renders without crashing', () => {
         shallow(<App/>);
