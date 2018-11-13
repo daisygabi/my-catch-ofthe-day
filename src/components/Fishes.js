@@ -16,7 +16,7 @@ export default class Fishes extends React.Component {
                             key={key}
                             index={key}
                             details={this.props.fishes[key]}
-                            addToOrder={this.addToOrder}
+                            handleClick={this.addToOrder}
                         />
                     ))}
             </Row>

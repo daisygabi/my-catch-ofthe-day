@@ -10,10 +10,10 @@ export default class Fish extends React.Component {
             status: PropTypes.string,
             price: PropTypes.number
         }),
-        addToOrder: PropTypes.func
+        handleClick: PropTypes.func
     };
-    handleClick = (index) => {
-        this.props.addToOrder(index);
+    addToOrderClick = (index) => {
+        this.props.handleClick(index);
     };
 
     render() {
@@ -29,7 +29,7 @@ export default class Fish extends React.Component {
                 <p>{desc}</p>
                 <button
                     disabled={!isAvailable}
-                    onClick={() => this.handleClick(this.props.index)}>
+                    onClick={() => this.addToOrderClick(this.props.index)}>
                     {isAvailable ? "Add To Order" : "Sold Out!"}
                 </button>
             </li>
