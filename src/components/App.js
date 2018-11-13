@@ -47,8 +47,10 @@ export default class App extends Component {
     };
 
     addToOrderFromApp = key => {
+        console.log("addToOrderFromApp loading...");
         // take a copy of the order
         const order = {...this.state.order};
+        console.log("addToOrderFromApp order: " + order);
         // add a new item in the order or update de number in the found order
         order[key] = order[key] + 1 || 1;
         // update state of the order
