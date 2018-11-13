@@ -31,7 +31,7 @@ export default class App extends Component {
                         </Col>
                         <Col xs={6} sm={3} md={4} lg={5} style={{background: '#280000'}}>
                             <Inventory
-                                    loadSampleFishes={this.loadSamplesFishes}/>
+                                    data={this.loadSamplesFishes}/>
                         </Col>
                     </Row>
                 </Container>

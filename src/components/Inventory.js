@@ -11,7 +11,7 @@ export default class Inventory extends React.Component {
             <div>
                 <p>Show Inventory here</p>
                 <button id="loadFishesButton"
-                        onClick={this.props.loadSampleFishes}>Load Sample Fishes</button>
+                        onClick={this.props.data}>Load Sample Fishes</button>
             </div>
         );
     }
