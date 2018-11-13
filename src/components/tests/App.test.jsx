@@ -2,52 +2,45 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import App from '../App';
 
-describe('verify rendered UI items', () => {
-    var firstKey, secondKey;
-    var defaultOrder, firstOrder, lastOrder;
+const fish1Key = 'fish1';
+const fish2Key = 'fish2';
+const setupFishes = (appComponent) => {
+    // Add two new fish to order
+    appComponent.instance().addToOrderFromApp(fish1Key);
+    appComponent.instance().addToOrderFromApp(fish2Key);
+};
 
-    beforeEach(() => {
-        firstKey = 'fish1';
-        secondKey = 'fish2';
-        defaultOrder = {
-            fish1: 1
-        };
-        firstOrder = {
-            fish1: 1,
-            fish2: 1
-        };
-        lastOrder = {
-            fish1: 1,
-            fish2: 2
-        };
-    });
+describe('App', () => {
     it('renders without crashing', () => {
         shallow(<App/>);
     });
-    it('it updates the order when a new fish is added to the order', () => {
-        const wrapper = shallow(<App/>);
-        // Add two new fish to order
-        wrapper.instance().addToOrderFromApp(firstKey);
-        wrapper.instance().addToOrderFromApp(secondKey);
-        // Verify order state
-        expect(wrapper.state().order).toEqual(firstOrder);
 
-        // Add a fish to order that is already added
-        wrapper.instance().addToOrderFromApp(secondKey);
-        // Verify order state and it should contain both fishes
-        expect(wrapper.state().order).toEqual(lastOrder);
+    describe('addToOrderFromApp', () => {
+        it('updates the order when a new fish is added to the order', () => {
+            const wrapper = shallow(<App/>);
+            setupFishes(wrapper);
+
+            // Add a fish to order that is already added
+            wrapper.instance().addToOrderFromApp(fish2Key);
+
+            // Verify order state and it should contain both fishes
+            expect(wrapper.state().order).toEqual({
+                [fish1Key]: 1,
+                [fish2Key]: 2
+            });
+        });
     });
-    it('it updates the order when a new fish is removed to the order', () => {
-        const wrapper = shallow(<App/>);
-        // Add two new fish to order
-        wrapper.instance().addToOrderFromApp(firstKey);
-        wrapper.instance().addToOrderFromApp(secondKey);
-        // Verify order state
-        expect(wrapper.state().order).toEqual(firstOrder);
 
-        // Delete fish from order
-        wrapper.instance().removeFishFromOrder(secondKey);
-        // Verify order state
-        expect(wrapper.state().order).toEqual(defaultOrder);
+    describe('removeFishFromOrder', () => {
+        it('updates the order when a new fish is removed to the order', () => {
+            const wrapper = shallow(<App/>);
+            setupFishes(wrapper);
+            // Delete fish from order
+            wrapper.instance().removeFishFromOrder(fish2Key);
+            // Verify order state
+            expect(wrapper.state().order).toEqual({
+                [fish1Key]: 1
+            });
+        });
     });
 });
