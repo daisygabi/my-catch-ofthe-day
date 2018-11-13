@@ -12,13 +12,16 @@ export default class Fish extends React.Component {
         }),
         addToOrder: PropTypes.func
     };
+    handleClick = (index) => {
+        this.props.addToOrder(index);
+    };
 
     render() {
-        const { image, name, price, desc, status } = this.props.details;
+        const {image, name, price, desc, status} = this.props.details;
         const isAvailable = status === "available";
-        return(
+        return (
             <li id="showFish" className="menu-fish">
-                <img src={image} alt={name} />
+                <img src={image} alt={name}/>
                 <h3 className="fish-name">
                     {name}
                     <span className="price">{price}</span>
@@ -26,7 +29,7 @@ export default class Fish extends React.Component {
                 <p>{desc}</p>
                 <button
                     disabled={!isAvailable}
-                    onClick={() => this.props.addToOrder(this.props.index)}>
+                    onClick={() => this.handleClick(this.props.index)}>
                     {isAvailable ? "Add To Order" : "Sold Out!"}
                 </button>
             </li>
