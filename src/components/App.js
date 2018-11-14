@@ -32,7 +32,8 @@ export default class App extends Component {
                         <Col xs={6} sm={3} md={4} lg={5} style={{background: '#280000'}}>
                             <Inventory
                                     data={this.loadSamplesFishes}
-                                    fishes={this.state.fishes}/>
+                                    fishes={this.state.fishes}
+                                    updateFish={this.updateFish}/>
                         </Col>
                     </Row>
                 </Container>
@@ -66,5 +67,14 @@ export default class App extends Component {
         delete order[key];
         // update the state
         this.setState({order: order});
-    }
+    };
+
+    updateFish = (key, newFish) => {
+        // get copy of state
+        const fishes = {...this.state.fishes};
+        // update the fish
+        fishes[key] =  newFish;
+        // update the state
+        this.setState({fishes});
+    };
 }
