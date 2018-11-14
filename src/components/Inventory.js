@@ -4,7 +4,8 @@ import EditFormFish from "./EditFormFish";
 
 export default class Inventory extends React.Component {
     static propTypes = {
-        loadSampleFishes: PropTypes.func
+        data: PropTypes.func,
+        updateFish: PropTypes.func
     };
 
     render() {
@@ -17,7 +18,8 @@ export default class Inventory extends React.Component {
                     <EditFormFish
                         key={key}
                         index={key}
-                        fish={this.props.fishes[key]}/>
+                        fish={this.props.fishes[key]}
+                        updateFishDetails={this.props.updateFish}/>
                 ))}
             </div>
         );
