@@ -43,4 +43,27 @@ describe('App', () => {
             });
         });
     });
+    describe('updateFish', () => {
+        const index = 1;
+        const updatedFish = {
+            image: "../images/hali.jpg",
+            name: "NEW Pacific Halibut",
+            price: 1724,
+            desc:
+                "Everyones favorite white fish. We will cut it to the size you need and ship it.",
+            status: "available"
+        };
+
+        it('updates the current edited fish data', () => {
+            const wrapper = shallow(<App/>);
+            // Load demo data
+            wrapper.instance().loadSamplesFishes();
+
+            // Update fish with new values
+            wrapper.instance().updateFish(index, updatedFish);
+
+            // Check the values are changed
+            expect(wrapper.state().fishes[index]).toEqual(updatedFish);
+        });
+    });
 });
