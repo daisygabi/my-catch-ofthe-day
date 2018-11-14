@@ -42,6 +42,17 @@ export default class App extends Component {
     }
 
     componentDidMount() {
+        // Load data from local storage
+        const localStorageRef = localStorage.getItem(this.props.match.params.storeId);
+        if(localStorageRef) {
+            // If data found show on screen
+            this.setState({order: JSON.parse(localStorageRef)});
+        }
+    }
+
+    componentDidUpdate() {
+        // Add data to local storage
+        localStorage.setItem(this.props.match.params.storeId, JSON.stringify(this.state.order));
     }
 
     loadSamplesFishes = () => {
